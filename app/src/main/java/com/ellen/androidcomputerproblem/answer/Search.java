@@ -27,11 +27,12 @@ public class Search {
         }
 
         int middle = -1;
+        int low = 0;
+        int high = targetArray.length - 1;
 
         if(isDes) {
-            int low = 0;
-            int high = targetArray.length - 1;
 
+            //降序二分查找
             if (searchValue > targetArray[low] || searchValue < targetArray[high] || low > high) {
                 return middle;
             }
@@ -46,11 +47,7 @@ public class Search {
                     return middle;
                 }
             }
-
-
         }else {
-            int low = 0;
-            int high = targetArray.length - 1;
 
             //升序数组的二分查找
             if (searchValue < targetArray[low] || searchValue > targetArray[high] || low > high) {
