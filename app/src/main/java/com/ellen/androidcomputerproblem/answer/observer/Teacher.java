@@ -1,6 +1,6 @@
 package com.ellen.androidcomputerproblem.answer.observer;
 
-import com.ellen.problem.observer.basic.Subject;
+import com.ellen.androidcomputerproblem.answer.observer.basic.Subject;
 
 /**
  * 被观察者
