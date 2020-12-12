@@ -1,6 +1,7 @@
 package com.ellen.androidcomputerproblem.answer.list;
 
 
+import java.util.List;
 
 public interface MyList<T> {
     /**
@@ -43,6 +44,21 @@ public interface MyList<T> {
      * @return
      */
     boolean addAll(int index, MyList<T> list);
+
+    /**
+     * 添加一个List集合
+     * @param list
+     * @return
+     */
+    boolean addAll(List<T> list);
+
+    /**
+     * 添加一个List集合到指定位置
+     * @param index
+     * @param list
+     * @return
+     */
+    boolean addAll(int index, List<T> list);
 
     /**
      * 设置对应位置的值

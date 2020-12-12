@@ -1,6 +1,7 @@
 package com.ellen.androidcomputerproblem.answer.list;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class MyArrayList<T> implements MyList<T> {
 
@@ -67,8 +68,31 @@ public class MyArrayList<T> implements MyList<T> {
 
     @Override
     public boolean addAll(int index, MyList<T> list) {
+        if (index > size - 1) {
+            throw new ArrayIndexOutOfBoundsException(index);
+        }
         for (int i = 0; i < list.size(); i++) {
-            add(index,list.get(i));
+            add(index, list.get(i));
+            index++;
+        }
+        return true;
+    }
+
+    @Override
+    public boolean addAll(List<T> list) {
+        for (int i = 0; i < list.size(); i++) {
+            add(list.get(i));
+        }
+        return true;
+    }
+
+    @Override
+    public boolean addAll(int index, List<T> list) {
+        if (index > size - 1) {
+            throw new ArrayIndexOutOfBoundsException(index);
+        }
+        for (int i = 0; i < list.size(); i++) {
+            add(index, list.get(i));
             index++;
         }
         return true;

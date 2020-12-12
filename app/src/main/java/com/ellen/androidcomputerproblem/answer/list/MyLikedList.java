@@ -1,5 +1,7 @@
 package com.ellen.androidcomputerproblem.answer.list;
 
+import java.util.List;
+
 public class MyLikedList<T> implements MyList<T> {
 
     private int size = 0;
@@ -65,6 +67,26 @@ public class MyLikedList<T> implements MyList<T> {
 
     @Override
     public boolean addAll(int index, MyList<T> list) {
+        if (index >= size) {
+            throw new IndexOutOfBoundsException(String.valueOf(index));
+        }
+        for (int i = 0; i < list.size(); i++) {
+            add(index, list.get(i));
+            index++;
+        }
+        return true;
+    }
+
+    @Override
+    public boolean addAll(List<T> list) {
+        for (int i = 0; i < list.size(); i++) {
+            add(list.get(i));
+        }
+        return true;
+    }
+
+    @Override
+    public boolean addAll(int index, List<T> list) {
         if (index >= size) {
             throw new IndexOutOfBoundsException(String.valueOf(index));
         }
@@ -168,11 +190,11 @@ public class MyLikedList<T> implements MyList<T> {
         header = new Node<>(null);
         currentNode = header;
         size = 0;
-        return false;
+        return true;
     }
 
     /**
-     * 用于链表的结点封装
+     * 用于
      *
      * @param <E>
      */
